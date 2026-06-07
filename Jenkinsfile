@@ -1,24 +1,23 @@
 pipeline {
-
     agent any
 
     stages {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/username/docker-jenkins-demo.git'
+                echo 'Repository Checked Out'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t myapp:v1 .'
+                bat 'docker build -t myapp:v1 .'
             }
         }
 
         stage('Verify Image') {
             steps {
-                sh 'docker images'
+                bat 'docker images'
             }
         }
     }
